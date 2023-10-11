@@ -10,11 +10,16 @@ import ErrorPage from "./ErrorPage";
 import Contact from "./page/Contact";
 import UserDashboard from "./page/UserDashboard";
 import Profile from "./page/Profile";
+import Success from "./page/Success";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/success",
+    element: <Success />,
   },
 
   {
