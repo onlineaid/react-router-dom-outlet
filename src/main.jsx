@@ -11,6 +11,8 @@ import Contact from "./page/Contact";
 import UserDashboard from "./page/UserDashboard";
 import Profile from "./page/Profile";
 import Success from "./page/Success";
+import "react-image-gallery/styles/css/image-gallery.css";
+import Land from "./page/Land";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,11 @@ const router = createBrowserRouter([
   {
     path: "/success",
     element: <Success />,
+  },
+
+  {
+    path: "/product",
+    element: <Land />,
   },
 
   {
