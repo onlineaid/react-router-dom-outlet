@@ -12,7 +12,8 @@ import UserDashboard from "./page/UserDashboard";
 import Profile from "./page/Profile";
 import Success from "./page/Success";
 import "react-image-gallery/styles/css/image-gallery.css";
-import Land from "./page/Land";
+import Product from "./page/Product";
+import About from "./page/About";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,12 @@ const router = createBrowserRouter([
 
   {
     path: "/product",
-    element: <Land />,
+    element: <Product />,
+  },
+
+  {
+    path: "/about",
+    element: <About />,
   },
 
   {

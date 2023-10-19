@@ -1,31 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import MyImage from '../components/MyImage';
-import TopLoadingBar from '../components/TopLoadingBar';
+import LoadingBar from 'react-top-loading-bar'
+import withLoadingBar from '../components/WithLoadingBar';
 
 const url = 'https://fakestoreapi.com/products';
 
-export default function Land() {
+function Product() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchData = async () => {
+      setProgress(10); // Start with a 10% loading progress
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        setProgress(70); // Update loading progress as needed
+
         setProducts(data);
         setLoading(false);
-      })
-      .catch((error) => console.error('Error fetching data:', error));
-  }, []);
+        setProgress(100); // Set loading progress to 100 when data is loaded
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      }
+    };
 
+    fetchData();
+  }, []);
 
   return (
     <div>
-        
+        <LoadingBar
+        color='#80f'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
         
       <h1>Product List</h1>
       {loading ? (
-       <TopLoadingBar />
+       <p>loading ...</p>
       ) : (
         <>
           {products.map((product) => (
@@ -48,3 +65,5 @@ export default function Land() {
     </div>
   );
 }
+
+export default Product
