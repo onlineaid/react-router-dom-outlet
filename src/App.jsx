@@ -8,22 +8,15 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import ImgGallery from "./page/ImgGallery";
 import Land from "./page/Product";
 import TopLoadingBar from "./components/TopLoadingBar";
+import Header from "./components/Header";
+import HomeLayout from "./layout/HomeLatout";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <Link to="/userDashboard"> User </Link>
-      <br />
-      <Link to="/product"> Product </Link>
-
-      <br />
-      <Link to="/about"> About </Link>
-
-      <br />
-
-      <hr />
+     <HomeLayout />
     </>
   );
 }

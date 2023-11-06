@@ -1,10 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import App from './App'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import App from "./App";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import ErrorPage from "./ErrorPage";
 import Contact from "./page/Contact";
@@ -14,25 +11,32 @@ import Success from "./page/Success";
 import "react-image-gallery/styles/css/image-gallery.css";
 import Product from "./page/Product";
 import About from "./page/About";
+import Cart from "./page/Cart";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path: "/success",
-    element: <Success />,
-  },
+    children: [
+      {
+        path: "/success",
+        element: <Success />,
+      },
 
-  {
-    path: "/product",
-    element: <Product />,
-  },
+      {
+        path: "/product",
+        element: <Product />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
 
-  {
-    path: "/about",
-    element: <About />,
+      {
+        path: "/about",
+        element: <About />,
+      },
+    ],
   },
 
   {
@@ -44,7 +48,7 @@ const router = createBrowserRouter([
         path: "contact",
         element: <Contact />,
       },
-      
+
       {
         path: "profile",
         element: <Profile />,
